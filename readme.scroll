@@ -23,13 +23,13 @@ main
   addClass sub
  div
   addClass ctas
-  a Call 808-368-2541
-   href tel:+18083682541
+  a Call 808-724-1776
+   href tel:+18087241776
    addClass cta
   a Email us
    href mailto:launchation@knowbooks.com
    addClass ghost
- p For hotel package information, call 808-368-2541 or email launchation@knowbooks.com.
+ p For hotel package information, call 808-724-1776 or email launchation@knowbooks.com.
   addClass note
  a Knowbooks.com →
   href https://knowbooks.com
