@@ -1,8 +1,8 @@
-// ✏️ Change the slogan here. It's used for the headline, page title and share text.
+// ✏️ Change the slogan here. It's used for the headline only (it may contain HTML, so keep it out of the description).
 replace SLOGAN If you're not into smartphones;<br>if you have ½ a brain;<br> we're the launch that you've looked for;<br> come to <a href="https://www.ritzcarlton.com/en/hotels/hnlkz-the-ritz-carlton-oahu-turtle-bay/overview/" style="color:white;">turtle bay</a> and escape...
 
 title Launchation · Knowbooks.com Launch Event · Nov 4–6, Oahu
-description SLOGAN Knowbooks.com Launch Event, November 4–6, 2026, Oahu, Hawaii.
+description If you're not into smartphones, come to Turtle Bay and escape. Knowbooks.com Launch Event, November 4–6, 2026, Oahu, Hawaii.
 baseUrl https://launchation.com/
 permalink index.html
 openGraphImage og.png
@@ -19,18 +19,27 @@ main
  h1 SLOGAN
  p November 4 – 6, 2026 · Oahu, Hawaii
   addClass dates
+ p Craftsmanship · Community · Comedy
+  addClass pillars
  p The Knowbooks.com Launch Event.
   addClass sub
  div
   addClass ctas
+  a Book hotel
+   href https://www.marriott.com/event-reservations/reservation-link.mi?id=1792455628236&key=GRP&app=resvlink
+   target _blank
+   rel noopener
+   addClass cta
   a Call 808-724-1776
    href tel:+18087241776
-   addClass cta
+   addClass ghost
   a Email us
    href mailto:launchation@knowbooks.com
    addClass ghost
- p For hotel package information, call 808-724-1776 or email launchation@knowbooks.com.
+ p Questions? call 808-724-1776 or email launchation@knowbooks.com.
   addClass note
+ p #neverForgetSarahMarshall
+  addClass hashtag
  a Knowbooks.com →
   href https://knowbooks.com
   addClass home
@@ -59,6 +68,9 @@ css
  .cta:hover, .ghost:hover { transform: translateY(-2px); } .ghost:hover { background: rgba(255,255,255,.18); }
  .cta { background: linear-gradient(135deg, #ffb35c, #ff6f61); border-color: transparent; color: #1b0f1f; box-shadow: 0 10px 30px rgba(255,111,97,.35); }
  .note { font: clamp(12px, 1.7dvh, 14px)/1.45 ui-sans-serif, system-ui, sans-serif; opacity: .75; margin: 2.5dvh 0 0; max-width: 34em; }
+ .pillars { font: 600 clamp(10px, 1.5dvh, 12px)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: #ffd27a; margin: 1.6dvh 0 0; }
+ .hashtag { font: italic clamp(13px, 1.9dvh, 16px)/1 "Iowan Old Style", Palatino, Georgia, serif; color: #fff8ec; opacity: .7; margin: 2.5dvh 0 0; }
  .note a { color: #ffd27a; }
+ .hashtag + .home { margin-top: 1.4dvh; }
  .home { font: 600 12px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .25em; text-transform: uppercase; color: #ffd27a; text-decoration: none; margin-top: 3dvh; }
  @media (prefers-reduced-motion: reduce) { .bg { display: none; } html { background: #0b1424 url(poster.jpg) center/cover fixed; } .cta, .ghost { transition: none; } }
