@@ -33,6 +33,7 @@
 <a id="particle8" href="https://knowbooks.com" class="home">Knowbooks.com →</a></main>
 <script>const v = bg, b = sound
 const unmute = () => { v.muted = false; v.play(); b.hidden = true }
+if (self !== top) v.muted = true
 v.play().catch(() => { v.muted = true; v.play(); b.hidden = false; document.addEventListener("pointerdown", unmute, { once: true }) })</script>
 <style>.sound { position: fixed; right: 20px; bottom: 20px; font: 600 13px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .08em; color: #fff8ec; padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(255,210,122,.6); background: rgba(11,20,36,.45); backdrop-filter: blur(8px); cursor: pointer; }
 .sound[hidden] { display: none; }
