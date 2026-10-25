@@ -19,6 +19,8 @@ main
  h1 SLOGAN
  p November 4 – 6, 2026 · Oahu, Hawaii
   addClass dates
+ p Livestream · Thursday · 11:31am HST
+  addClass livestream
  p Craftsmanship · Community · Comedy
   addClass pillars
  p The Knowbooks.com Launch Event.
@@ -63,6 +65,7 @@ css
  .kicker { font: 600 clamp(10px, 1.6dvh, 13px)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .35em; text-transform: uppercase; color: #ffd27a; margin: 0 0 2.5dvh; }
  h1 { font-weight: 400; font-style: italic; font-size: clamp(22px, min(7vw, 6.3dvh), 76px); line-height: 1.08; margin: 0; text-shadow: 0 4px 40px rgba(0,0,0,.5); text-wrap: balance; }
  .dates { font: 700 clamp(12px, min(1.8vw, 2.2dvh), 20px)/1.4 ui-sans-serif, system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; margin: 3dvh 0 0; padding: 1.2dvh 22px; border-top: 1px solid rgba(255,210,122,.6); border-bottom: 1px solid rgba(255,210,122,.6); }
+ .livestream { font: 600 clamp(13px, min(1.9vw, 2.3dvh), 18px)/1.4 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #ffd27a; margin: 2dvh 0 0; }
  .sub { font-size: clamp(15px, min(2vw, 2.6dvh), 22px); opacity: .9; margin: 1.8dvh 0 3dvh; }
  .ctas { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
  .cta, .ghost { font: 600 clamp(14px, 2dvh, 16px)/1 ui-sans-serif, system-ui, sans-serif; color: #fff8ec; text-decoration: none; padding: clamp(11px, 2dvh, 17px) 26px; border-radius: 999px; border: 1px solid rgba(255,248,236,.55); backdrop-filter: blur(8px); background: rgba(255,255,255,.08); transition: transform .2s, background .2s; }
