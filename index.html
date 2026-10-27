@@ -29,18 +29,19 @@
 <main id="particle17" ><p id="particle0" class="kicker"><a href="https://knowbooks.com/" style="color:#ffd27a;">Knowbooks.com</a> presents</p>
 <h1 id="particle1" >Launchation.<br>A new kind of event for<br>a new kind of book.<br>Ritz-Carlton O'ahu, Turtle Bay.</h1>
 <p id="particle2" class="dates">November 4 – 6, 2026 · Oahu, Hawaii</p>
-<p id="particle3" class="livestream">Livestream · Thursday · 11:31am HST</p>
-<p id="particle4" class="pillars">Craftsmanship · Community · Comedy</p>
-<p id="particle5" class="sub">The Knowbooks.com Launch Event.</p>
-<a id="particle6" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1792455628236&key=GRP&app=resvlink" target="_blank" rel="noopener" class="cta">Book Hotel to Guarantee Your Spot</a>
-<p id="particle7" class="dvds-label">&nbsp;</p>
-<div id="particle8" class="shelf"><a id="particle1" href="#" title="Why" data-i="0" class="dvd"><img id="particle4" src="posters/why.jpg" alt="Why"  /></a>
+<p id="clock" class="countdown"></p>
+<p id="particle4" class="livestream">Livestream · Thursday · 11:31am HST</p>
+<p id="particle5" class="pillars">Craftsmanship · Community · Comedy</p>
+<p id="particle6" class="sub">The Knowbooks.com Launch Event.</p>
+<a id="particle7" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1792455628236&key=GRP&app=resvlink" target="_blank" rel="noopener" class="cta">Book Hotel to Guarantee Your Spot</a>
+<p id="particle8" class="dvds-label">&nbsp;</p>
+<div id="particle9" class="shelf"><a id="particle1" href="#" title="Why" data-i="0" class="dvd"><img id="particle4" src="posters/why.jpg" alt="Why"  /></a>
 <a id="particle2" href="#" title="Koa" data-i="1" class="dvd"><img id="particle4" src="posters/koa.jpg" alt="Koa"  /></a>
 <a id="particle3" href="#" title="Launchation 12 Days" data-i="2" class="dvd"><img id="particle4" src="posters/launchation12days.jpg" alt="Launchation 12 Days"  /></a>
 <a id="particle4" href="#" title="Launchation Brunch" data-i="3" class="dvd"><img id="particle4" src="posters/launchationBrunch.jpg" alt="Launchation Brunch"  /></a>
 <a id="particle5" href="#" title="Ten Days" data-i="4" class="dvd"><img id="particle4" src="posters/tenDays.jpg" alt="Ten Days"  /></a>
 <a id="particle6" href="#" title="There Will Be Golf" data-i="5" class="dvd"><img id="particle4" src="posters/thereWillBeGolf.jpg" alt="There Will Be Golf"  /></a></div>
-<p id="particle9" class="note">Questions? call 808-724-1776 or email <a href="mailto:launchation@knowbooks.com">launchation@knowbooks.com</a> · #neverForgetSarahMarshall ·<a id="particle1" href="https://knowbooks.com" >Knowbooks.com</a></p></main>
+<p id="particle10" class="note">Questions? call 808-724-1776 or email <a href="mailto:launchation@knowbooks.com">launchation@knowbooks.com</a> · #neverForgetSarahMarshall ·<a id="particle1" href="https://knowbooks.com" >Knowbooks.com</a></p></main>
 <script>const clips = ["why.mp4", "koa.mp4", "launchation12days.mp4", "launchationBrunch.mp4", "tenDays.mp4", "thereWillBeGolf.mp4"]
 let i = 0, scrubbing = false
 const v = bg, b = sound, btn = play, bar = seek
@@ -83,6 +84,14 @@ document.addEventListener("keydown", (e) => {
  else if (e.key === "n" || e.key === "N") { i = (i + 1) % clips.length; playClip() }
  else if (e.key === "p" || e.key === "P") { i = (i - 1 + clips.length) % clips.length; playClip() }
 })
+const target = new Date("2026-11-05T11:31:00-10:00").getTime()
+const tick = () => {
+ const ms = target - Date.now()
+ if (ms <= 0) { clock.textContent = "Live now"; return }
+ const s = Math.floor(ms/1000), d = Math.floor(s/86400), h = Math.floor((s%86400)/3600), m = Math.floor((s%3600)/60), sec = s%60
+ clock.textContent = d + "d " + String(h).padStart(2,"0") + "h " + String(m).padStart(2,"0") + "m " + String(sec).padStart(2,"0") + "s"
+}
+tick(); setInterval(tick, 1000)
 v.muted = true
 syncMute(); syncPlay()
 playClip()</script>
@@ -99,6 +108,7 @@ main { position: relative; z-index: 2; height: 100vh; height: 100dvh; max-width:
 .kicker { font: 600 clamp(9px, 1.4dvh, 12px)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .32em; text-transform: uppercase; color: #ffd27a; margin: 0 0 1.4dvh; }
 h1 { font-weight: 400; font-style: italic; font-size: clamp(18px, min(5.8vw, 5.2dvh), 64px); line-height: 1.08; margin: 0; text-shadow: 0 4px 40px rgba(0,0,0,.5); text-wrap: balance; }
 .dates { font: 700 clamp(11px, min(1.6vw, 1.9dvh), 17px)/1.35 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin: 1.8dvh 0 0; padding: .9dvh 18px; border-top: 1px solid rgba(255,210,122,.55); border-bottom: 1px solid rgba(255,210,122,.55); }
+.countdown { font: 700 clamp(12px, min(2vw, 2.2dvh), 18px)/1.2 ui-sans-serif, system-ui, sans-serif; letter-spacing: .08em; color: #fff8ec; margin: .8dvh 0 0; text-shadow: 0 2px 16px rgba(0,0,0,.45); font-variant-numeric: tabular-nums; }
 .livestream { font: 600 clamp(11px, min(1.5vw, 1.8dvh), 15px)/1.3 ui-sans-serif, system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #ffd27a; margin: 1.2dvh 0 0; }
 .pillars { font: 600 clamp(9px, 1.3dvh, 11px)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: #ffd27a; margin: 1.1dvh 0 0; }
 .sub { font-size: clamp(13px, min(1.8vw, 2.1dvh), 18px); opacity: .9; margin: 1.1dvh 0 2dvh; }

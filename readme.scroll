@@ -26,6 +26,9 @@ main
  h1 SLOGAN
  p November 4 – 6, 2026 · Oahu, Hawaii
   addClass dates
+ p
+  id clock
+  addClass countdown
  p Livestream · Thursday · 11:31am HST
   addClass livestream
  p Craftsmanship · Community · Comedy
@@ -137,6 +140,14 @@ script
   else if (e.key === "n" || e.key === "N") { i = (i + 1) % clips.length; playClip() }
   else if (e.key === "p" || e.key === "P") { i = (i - 1 + clips.length) % clips.length; playClip() }
  })
+ const target = new Date("2026-11-05T11:31:00-10:00").getTime()
+ const tick = () => {
+  const ms = target - Date.now()
+  if (ms <= 0) { clock.textContent = "Live now"; return }
+  const s = Math.floor(ms/1000), d = Math.floor(s/86400), h = Math.floor((s%86400)/3600), m = Math.floor((s%3600)/60), sec = s%60
+  clock.textContent = d + "d " + String(h).padStart(2,"0") + "h " + String(m).padStart(2,"0") + "m " + String(sec).padStart(2,"0") + "s"
+ }
+ tick(); setInterval(tick, 1000)
  v.muted = true
  syncMute(); syncPlay()
  playClip()
@@ -155,6 +166,7 @@ css
  .kicker { font: 600 clamp(9px, 1.4dvh, 12px)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .32em; text-transform: uppercase; color: #ffd27a; margin: 0 0 1.4dvh; }
  h1 { font-weight: 400; font-style: italic; font-size: clamp(18px, min(5.8vw, 5.2dvh), 64px); line-height: 1.08; margin: 0; text-shadow: 0 4px 40px rgba(0,0,0,.5); text-wrap: balance; }
  .dates { font: 700 clamp(11px, min(1.6vw, 1.9dvh), 17px)/1.35 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin: 1.8dvh 0 0; padding: .9dvh 18px; border-top: 1px solid rgba(255,210,122,.55); border-bottom: 1px solid rgba(255,210,122,.55); }
+ .countdown { font: 700 clamp(12px, min(2vw, 2.2dvh), 18px)/1.2 ui-sans-serif, system-ui, sans-serif; letter-spacing: .08em; color: #fff8ec; margin: .8dvh 0 0; text-shadow: 0 2px 16px rgba(0,0,0,.45); font-variant-numeric: tabular-nums; }
  .livestream { font: 600 clamp(11px, min(1.5vw, 1.8dvh), 15px)/1.3 ui-sans-serif, system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #ffd27a; margin: 1.2dvh 0 0; }
  .pillars { font: 600 clamp(9px, 1.3dvh, 11px)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: #ffd27a; margin: 1.1dvh 0 0; }
  .sub { font-size: clamp(13px, min(1.8vw, 2.1dvh), 18px); opacity: .9; margin: 1.1dvh 0 2dvh; }
@@ -176,3 +188,5 @@ css
 // Playlist: why, koa, launchation12days, launchationBrunch, tenDays, thereWillBeGolf
 // DVD click → that clip; ended → next. Mute toggle always visible.
 // Transport bar: play/pause, scrubber, mute. Keys: ←/→ ±10s, Space, M, N next, P previous.
+
+// Countdown → livestream Thu Nov 5, 2026 11:31am HST (Pacific/Honolulu).
