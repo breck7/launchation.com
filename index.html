@@ -26,22 +26,23 @@
 <span id="dur" class="t-time">0:00</span>
 <button id="sound" class="t-btn" type="button" aria-pressed="true">🔇</button>
 </div>
-<main id="particle17" ><p id="particle0" class="kicker"><a href="https://knowbooks.com/" style="color:#ffd27a;">Knowbooks.com</a> presents</p>
-<h1 id="particle1" >Launchation.<br>A new kind of event for<br>a new kind of book.<br>Ritz-Carlton O'ahu, Turtle Bay.</h1>
-<p id="particle2" class="dates">November 4 – 6, 2026 · Oahu, Hawaii</p>
+<button id="restore" type="button" title="Show details" class="chip" aria-hidden="true">Launchation</button>
+<main id="particle18" ><div id="panel" class="panel"><button id="minBtn" type="button" title="Minimize" class="win-btn">─</button>
+<p id="particle3" class="kicker"><a href="https://knowbooks.com/" style="color:#ffd27a;">Knowbooks.com</a> presents</p>
+<h1 id="particle4" >Launchation.<br>A new kind of event for<br>a new kind of book.<br>Ritz-Carlton O'ahu, Turtle Bay.</h1>
+<p id="particle5" class="dates">November 4 – 6, 2026 · Oahu, Hawaii</p>
 <p id="clock" class="countdown"></p>
-<p id="particle4" class="livestream">Livestream · Thursday · 11:31am HST</p>
-<p id="particle5" class="pillars">Craftsmanship · Community · Comedy</p>
-<p id="particle6" class="sub">The Knowbooks.com Launch Event.</p>
-<a id="particle7" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1792455628236&key=GRP&app=resvlink" target="_blank" rel="noopener" class="cta">Book Hotel to Guarantee Your Spot</a>
-<p id="particle8" class="dvds-label">&nbsp;</p>
-<div id="particle9" class="shelf"><a id="particle1" href="#" title="Why" data-i="0" class="dvd"><img id="particle4" src="posters/why.jpg" alt="Why"  /></a>
-<a id="particle2" href="#" title="Koa" data-i="1" class="dvd"><img id="particle4" src="posters/koa.jpg" alt="Koa"  /></a>
-<a id="particle3" href="#" title="Launchation 12 Days" data-i="2" class="dvd"><img id="particle4" src="posters/launchation12days.jpg" alt="Launchation 12 Days"  /></a>
-<a id="particle4" href="#" title="Launchation Brunch" data-i="3" class="dvd"><img id="particle4" src="posters/launchationBrunch.jpg" alt="Launchation Brunch"  /></a>
-<a id="particle5" href="#" title="Ten Days" data-i="4" class="dvd"><img id="particle4" src="posters/tenDays.jpg" alt="Ten Days"  /></a>
-<a id="particle6" href="#" title="There Will Be Golf" data-i="5" class="dvd"><img id="particle4" src="posters/thereWillBeGolf.jpg" alt="There Will Be Golf"  /></a></div>
-<p id="particle10" class="note">Questions? call 808-724-1776 or email <a href="mailto:launchation@knowbooks.com">launchation@knowbooks.com</a> · #neverForgetSarahMarshall ·<a id="particle1" href="https://knowbooks.com" >Knowbooks.com</a></p></main>
+<p id="particle7" class="livestream">Livestream · Thursday · 11:31am HST</p>
+<p id="particle8" class="pillars">Craftsmanship · Community · Comedy</p>
+<p id="particle9" class="sub">The Knowbooks.com Launch Event.</p>
+<a id="particle10" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1792455628236&key=GRP&app=resvlink" target="_blank" rel="noopener" class="cta">Book Hotel to Guarantee Your Spot</a>
+<p id="particle11" class="note">Questions? call 808-724-1776 or email <a href="mailto:launchation@knowbooks.com">launchation@knowbooks.com</a> · #neverForgetSarahMarshall ·<a id="particle1" href="https://knowbooks.com" >Knowbooks.com</a></p></div>
+<div id="shelf" class="shelf"><a id="particle2" href="#" title="Why" data-i="0" class="dvd"><img id="particle4" src="posters/why.jpg" alt="Why"  /></a>
+<a id="particle3" href="#" title="Koa" data-i="1" class="dvd"><img id="particle4" src="posters/koa.jpg" alt="Koa"  /></a>
+<a id="particle4" href="#" title="Launchation 12 Days" data-i="2" class="dvd"><img id="particle4" src="posters/launchation12days.jpg" alt="Launchation 12 Days"  /></a>
+<a id="particle5" href="#" title="Launchation Brunch" data-i="3" class="dvd"><img id="particle4" src="posters/launchationBrunch.jpg" alt="Launchation Brunch"  /></a>
+<a id="particle6" href="#" title="Ten Days" data-i="4" class="dvd"><img id="particle4" src="posters/tenDays.jpg" alt="Ten Days"  /></a>
+<a id="particle7" href="#" title="There Will Be Golf" data-i="5" class="dvd"><img id="particle4" src="posters/thereWillBeGolf.jpg" alt="There Will Be Golf"  /></a></div></main>
 <script>const clips = ["why.mp4", "koa.mp4", "launchation12days.mp4", "launchationBrunch.mp4", "tenDays.mp4", "thereWillBeGolf.mp4"]
 let i = 0, scrubbing = false
 const v = bg, b = sound, btn = play, bar = seek
@@ -92,6 +93,15 @@ const tick = () => {
  clock.textContent = d + "d " + String(h).padStart(2,"0") + "h " + String(m).padStart(2,"0") + "m " + String(sec).padStart(2,"0") + "s"
 }
 tick(); setInterval(tick, 1000)
+const setPanel = (open) => {
+ panel.classList.toggle("is-min", !open)
+ restore.classList.toggle("is-on", !open)
+ restore.setAttribute("aria-hidden", open ? "true" : "false")
+ minBtn.setAttribute("aria-expanded", open ? "true" : "false")
+}
+minBtn.setAttribute("aria-expanded", "true")
+minBtn.addEventListener("click", () => setPanel(false))
+restore.addEventListener("click", () => setPanel(true))
 v.muted = true
 syncMute(); syncPlay()
 playClip()</script>
@@ -103,8 +113,15 @@ playClip()</script>
 html, body { height: 100%; margin: 0; overflow: hidden; background: #0b1424; color: #fff8ec; }
 body { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
 .bg { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; background: #0b1424; }
-body::before { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(8,14,30,.45), rgba(8,14,30,.2) 45%, rgba(30,10,40,.72)), radial-gradient(ellipse at 50% 60%, transparent, rgba(0,0,0,.35)); }
-main { position: relative; z-index: 2; height: 100vh; height: 100dvh; max-width: 960px; margin: auto; padding: 2.2dvh 5vw 5.5dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(8,14,30,.28), rgba(8,14,30,.12) 50%, rgba(30,10,40,.45)); }
+main { position: relative; z-index: 2; height: 100vh; height: 100dvh; max-width: 960px; margin: auto; padding: 2.2dvh 5vw 8.5dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: hidden; }
+.panel { position: relative; width: min(720px, 100%); max-height: calc(100dvh - 7dvh); overflow: auto; padding: 2.4dvh 4.5vw 2.2dvh; border-radius: 18px; background: rgba(10,16,28,.78); border: 1px solid rgba(255,210,122,.4); box-shadow: 0 18px 50px rgba(0,0,0,.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transform-origin: left top; transition: opacity .28s ease, transform .28s ease, visibility 0s; }
+.panel.is-min { opacity: 0; transform: translate(-36vw, -28vh) scale(.06); visibility: hidden; pointer-events: none; transition: opacity .28s ease, transform .28s ease, visibility 0s linear .28s; }
+.win-btn { position: absolute; top: 10px; right: 12px; z-index: 1; appearance: none; border: 1px solid rgba(255,210,122,.45); background: rgba(255,255,255,.06); color: #ffd27a; width: 28px; height: 22px; border-radius: 7px; font: 700 14px/1 ui-sans-serif, system-ui, sans-serif; cursor: pointer; padding: 0 0 4px; }
+.win-btn:hover { background: rgba(255,210,122,.18); }
+.chip { position: fixed; left: 14px; top: 14px; z-index: 3; appearance: none; border: 1px solid rgba(255,210,122,.5); background: rgba(10,16,28,.82); color: #ffd27a; font: 600 12px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .18em; text-transform: uppercase; padding: 11px 16px; border-radius: 999px; cursor: pointer; backdrop-filter: blur(10px); box-shadow: 0 10px 28px rgba(0,0,0,.35); opacity: 0; transform: scale(.85); visibility: hidden; pointer-events: none; transition: opacity .22s ease .1s, transform .22s ease .1s, visibility 0s linear .32s; }
+.chip.is-on { opacity: 1; transform: scale(1); visibility: visible; pointer-events: auto; transition: opacity .22s ease, transform .22s ease, visibility 0s; }
+.chip:hover { background: rgba(255,210,122,.16); }
 .kicker { font: 600 clamp(9px, 1.4dvh, 12px)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .32em; text-transform: uppercase; color: #ffd27a; margin: 0 0 1.4dvh; }
 h1 { font-weight: 400; font-style: italic; font-size: clamp(18px, min(5.8vw, 5.2dvh), 64px); line-height: 1.08; margin: 0; text-shadow: 0 4px 40px rgba(0,0,0,.5); text-wrap: balance; }
 .dates { font: 700 clamp(11px, min(1.6vw, 1.9dvh), 17px)/1.35 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin: 1.8dvh 0 0; padding: .9dvh 18px; border-top: 1px solid rgba(255,210,122,.55); border-bottom: 1px solid rgba(255,210,122,.55); }
@@ -114,8 +131,8 @@ h1 { font-weight: 400; font-style: italic; font-size: clamp(18px, min(5.8vw, 5.2
 .sub { font-size: clamp(13px, min(1.8vw, 2.1dvh), 18px); opacity: .9; margin: 1.1dvh 0 2dvh; }
 .cta { font: 600 clamp(13px, 1.9dvh, 16px)/1 ui-sans-serif, system-ui, sans-serif; color: #1b0f1f; text-decoration: none; padding: clamp(10px, 1.7dvh, 15px) 24px; border-radius: 999px; background: linear-gradient(135deg, #ffb35c, #ff6f61); box-shadow: 0 8px 24px rgba(255,111,97,.35); transition: transform .2s; }
 .cta:hover { transform: translateY(-2px); }
-.dvds-label { font: 600 clamp(10px, 1.4dvh, 12px)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: #ffd27a; margin: 2.4dvh 0 1.4dvh; opacity: .9; }
-.shelf { display: flex; flex-wrap: nowrap; gap: clamp(8px, 1.2vw, 14px); justify-content: center; max-width: 100%; }
+.shelf { display: flex; flex-wrap: nowrap; gap: clamp(8px, 1.2vw, 14px); justify-content: center; max-width: 100%; margin: 2dvh 0 0; transition: opacity .22s ease; }
+.panel.is-min ~ .shelf { position: fixed; left: 50%; bottom: 62px; transform: translateX(-50%); z-index: 3; margin: 0; width: min(720px, calc(100% - 24px)); padding: 0 8px; box-sizing: border-box; }
 .dvd { flex: 0 0 auto; width: clamp(72px, 11vw, 108px); display: block; text-decoration: none; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,210,122,.35); box-shadow: 0 6px 16px rgba(0,0,0,.4); background: #120e0a; transition: transform .2s, border-color .2s; }
 .dvd img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .dvd:hover { transform: translateY(-3px); border-color: #ffd27a; }
