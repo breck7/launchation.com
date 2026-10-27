@@ -1,8 +1,8 @@
 // ✏️ Change the slogan here. It's used for the headline only (it may contain HTML, so keep it out of the description).
-replace SLOGAN Launchation.<br>A new kind of event for<br>a new kind of book.<br>Turtle Bay.
+replace SLOGAN Launchation.<br>A new kind of event for<br>a new kind of book.<br>Ritz-Carlton O'ahu, Turtle Bay.
 
 title Launchation · Knowbooks.com Launch Event · Nov 4–6, Oahu
-description If you're not into smartphones, come to Turtle Bay and escape. Knowbooks.com Launch Event, November 4–6, 2026, Oahu, Hawaii.
+description If you're not into smartphones, come to Turtle Bay and escape. Knowbooks.com Launch Event, November 4–6, 2026, O'ahu, Hawai'i.
 baseUrl https://launchation.com/
 permalink index.html
 openGraphImage og.png
